@@ -34,8 +34,8 @@ export class Planet {
      */
     applyForce(planet: Planet) {
         // Calculate the vector from this -> planet.
-        let delta_x = this.location.x - planet.location.x;
-        let delta_y = this.location.y - planet.location.y;
+        let delta_x = planet.location.x - this.location.x;
+        let delta_y = planet.location.y - this.location.y;
 
         // Determine the current distance between the planets.
         // Pythagoras.
