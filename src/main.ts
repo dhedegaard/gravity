@@ -1,7 +1,7 @@
 import { Planet } from "./planet";
 import { Point } from "./utils";
 
-let planets : Array<Planet> = [
+let planets: Array<Planet> = [
     new Planet(
         "Sun",
         1.989 * 10 ** 30,
@@ -12,11 +12,12 @@ let planets : Array<Planet> = [
         "Earth",
         5.972 * 10 ** 24,
         new Point(149.6 * 10 ** 9, 0),
-        "green"
+        "green",
+        new Point(0, 30.000 * 9 * 10 ** -2),
     ),
 ];
 
-let canvas : HTMLCanvasElement;
+let canvas: HTMLCanvasElement;
 let context: CanvasRenderingContext2D;
 
 function main() {
@@ -28,9 +29,9 @@ function main() {
     // Calculate and apply forces.
     applyForces();
     // Do it again :)
-    setTimeout(function() {
+    setTimeout(function () {
         main();
-    }, 0);
+    }, 1);
 }
 
 function drawPlanets() {
@@ -56,8 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create the canvas element and set width/height.
     canvas = document.createElement("canvas") as HTMLCanvasElement;
-    canvas.width = container.clientWidth - 10;
-    canvas.height = window.innerHeight - 10;
+    let width = Math.min(container.clientWidth, window.innerHeight);
+    canvas.width = width - 10;
+    canvas.height = width - 10;
     canvas.style.border = "1px solid black";
 
     // Add the canvas and fetch the context.

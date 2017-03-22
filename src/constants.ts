@@ -9,4 +9,4 @@ export const MASS_FACTOR = 0.5;
 /**
  * Scales all distances by this factor.
  */
-export const DISTANCE_FACTOR = 2 * 10 ** -9;
+export const DISTANCE_FACTOR = 1 * 10 ** -9;

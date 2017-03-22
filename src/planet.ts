@@ -19,11 +19,11 @@ export class Planet {
      * @param location The current location of the planet
      * @param color An optional color used for rendering the planet
      */
-    constructor(name: string, mass: number, location: Point, color?: string) {
+    constructor(name: string, mass: number, location: Point, color?: string, acc_vector?: Point) {
         this.name = name;
         this.mass = mass;
         this.location = location;
-        this.acc_vector = new Point(0, 0);
+        this.acc_vector = acc_vector || new Point(0, 0);
         this.color = color || "green";
     }
 
@@ -61,8 +61,9 @@ export class Planet {
 
         // TODO: Apply non-uniform acceleration.
         // For now i use a dummyimplementation for simply doing something.
-        this.location.x += this.acc_vector.x * 10 ** 7;
-        this.location.y += this.acc_vector.y * 10 ** 7;
+        let acc_vector_multiplier = 1.5 * 10 ** 8;
+        this.location.x += this.acc_vector.x * acc_vector_multiplier;
+        this.location.y += this.acc_vector.y * acc_vector_multiplier;
     }
 
     /**
