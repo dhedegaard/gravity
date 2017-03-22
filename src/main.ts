@@ -13,7 +13,7 @@ let planets: Array<Planet> = [
         5.972 * 10 ** 24,
         new Point(149.6 * 10 ** 9, 0),
         "green",
-        new Point(0, 30.000 * 9 * 10 ** -2),
+        new Point(0, 30.000 * 4 * 10 ** -2),
     ),
 ];
 
