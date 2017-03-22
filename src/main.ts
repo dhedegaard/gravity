@@ -13,25 +13,39 @@ let planets: Array<Planet> = [
         5.972 * 10 ** 24,
         new Point(149.6 * 10 ** 9, 0),
         "green",
-        new Point(0, 30.000 * 4 * 10 ** -2),
+        new Point(0, 30000),
     ),
+    // new Planet(
+    //     "Moon",
+    //     7.34767309 * 10 ** 22,
+    //     new Point(149.5 * 10 ** 9 - 384400, 0),
+    //     "grey",
+    //     new Point(-3683, 0),
+    // )
 ];
 
 let canvas: HTMLCanvasElement;
 let context: CanvasRenderingContext2D;
 
 function main() {
-    // Clear the canvas.
-    context.fillStyle = 'white';
-    context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-    // Draw the planets.
-    drawPlanets();
-    // Calculate and apply forces.
-    applyForces();
-    // Do it again :)
-    setTimeout(function () {
-        main();
-    }, 1);
+    let running = false;
+    setInterval(() => {
+        if (running) {
+            return;
+        }
+        running = true;
+        // Clear the canvas.
+        context.fillStyle = 'white';
+        context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+        // Calculate and apply forces.
+        for (let i = 0; i < 50; i++) {
+            applyForces();
+        }
+        // Draw the planets.
+        drawPlanets();
+        // Do it again :)
+        running = false;
+    }, 13);
 }
 
 function drawPlanets() {
@@ -42,9 +56,9 @@ function drawPlanets() {
 }
 
 function applyForces() {
-    planets.forEach((planet) => {
-        planets.forEach((otherPlanet) => {
-            if (planet != otherPlanet) {
+    planets.forEach((planet, idx) => {
+        planets.forEach((otherPlanet, otherIdx) => {
+            if (idx !== otherIdx) {
                 planet.applyForce(otherPlanet);
             }
         });

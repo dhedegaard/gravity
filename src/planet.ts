@@ -51,7 +51,7 @@ export class Planet {
 
         // Calculate the acceleration to apply based on the force and the mass.
         // Newton's second law.
-        let acceleration = force / this.mass;
+        let acceleration = force / this.mass * 6 * 10 ** 3;
 
         // Calculate and applythe new acceleration vector to apply based on the
         // difference between the newly calculated acceleration and the
@@ -61,7 +61,7 @@ export class Planet {
 
         // TODO: Apply non-uniform acceleration.
         // For now i use a dummyimplementation for simply doing something.
-        let acc_vector_multiplier = 3 * 10 ** 8;
+        let acc_vector_multiplier = 6 * 10 ** 3;
         this.location.x += this.acc_vector.x * acc_vector_multiplier;
         this.location.y += this.acc_vector.y * acc_vector_multiplier;
     }
