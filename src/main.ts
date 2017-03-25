@@ -15,13 +15,13 @@ let planets: Array<Planet> = [
         "green",
         new Point(0, 30000),
     ),
-    // new Planet(
-    //     "Moon",
-    //     7.34767309 * 10 ** 22,
-    //     new Point(149.5 * 10 ** 9 - 384400, 0),
-    //     "grey",
-    //     new Point(-3683, 0),
-    // )
+    new Planet(
+        "Moon",
+        7.34767309 * 10 ** 22,
+        new Point(149.5 * 10 ** 9 + 384400, 0),
+        "grey",
+        new Point(0, -3683 + 30000),
+    ),
 ];
 
 let canvas: HTMLCanvasElement;
@@ -29,7 +29,7 @@ let context: CanvasRenderingContext2D;
 
 function main() {
     let running = false;
-    setInterval(() => {
+    let func = () => {
         if (running) {
             return;
         }
@@ -38,14 +38,16 @@ function main() {
         context.fillStyle = 'white';
         context.fillRect(0, 0, context.canvas.width, context.canvas.height);
         // Calculate and apply forces.
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 10 ** 4; i++) {
             applyForces();
         }
         // Draw the planets.
         drawPlanets();
         // Do it again :)
         running = false;
-    }, 13);
+    };
+    func();
+    setInterval(func, 25);
 }
 
 function drawPlanets() {
