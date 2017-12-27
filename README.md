@@ -1,5 +1,7 @@
 # Gravity
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhedegaard/gravity.svg)](https://greenkeeper.io/)
+
 A simple experiment for trying to apply gravity forces between planets :)
 
 Also, my first public piece of typescript.
